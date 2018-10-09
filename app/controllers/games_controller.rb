@@ -1,5 +1,10 @@
 class GamesController < ApplicationController
   # Add your GamesController code here
+  def index
+    @games = Game.all
+    render json: @games
+  end
+
   def show
     @game = Game.find(params[:id])
     render json: @game
@@ -16,10 +21,6 @@ class GamesController < ApplicationController
     render json: @game
   end
 
-  def index
-    @games = Game.all
-    render json: @games
-  end
 
   def game_params
     params.permit(:state)
