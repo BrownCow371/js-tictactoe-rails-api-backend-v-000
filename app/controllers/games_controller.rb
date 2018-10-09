@@ -6,12 +6,20 @@ class GamesController < ApplicationController
   end
 
   def create
+    @game = Game.create(game_params)
+    render json: @game
   end
 
   def updated
   end
 
   def index
+    @games = Game.all  
+    render json: @games
+  end
+
+  def game_params
+    params.require(:game).permit(:id, :state)
   end
 
 end
