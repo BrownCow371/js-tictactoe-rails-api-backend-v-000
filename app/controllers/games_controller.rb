@@ -17,12 +17,12 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = Game.all
+    @games = Game.all  
     render json: @games
   end
 
-  def game_params
-    params.require(:game).permit(:id, :state)
-  end
+  # def game_params
+  #   params.require(:game).permit(:id, :state)
+  # end
 
 end
